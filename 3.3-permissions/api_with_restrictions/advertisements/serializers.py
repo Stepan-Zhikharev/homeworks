@@ -42,4 +42,7 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         """Метод для валидации. Вызывается при создании и обновлении."""
 
         # TODO: добавьте требуемую валидацию
+        status = Advertisement.objects.filter(creator= self.context["request"].user, status='OPEN')
+        if len(status) > 10:
+            raise ValidationError("Ошибка")
         return data

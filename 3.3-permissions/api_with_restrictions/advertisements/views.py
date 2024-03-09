@@ -1,5 +1,3 @@
-from django_filters import DateFromToRangeFilter
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 from rest_framework.viewsets import ModelViewSet
 
@@ -21,8 +19,8 @@ class AdvertisementViewSet(ModelViewSet):
     serializer_class = AdvertisementSerializer
     permission_classes = [IsOwnerOrReadOnly]
     throttle_classes = [AnonRateThrottle, UserRateThrottle]
-    def get_permissions(self):
-        """Получение прав для действий."""
-        if self.action in ["create", "update", "partial_update"]:
-            return [IsAuthenticated()]
-        return []
+    # def get_permissions(self):
+    #     """Получение прав для действий."""
+    #     if self.action in ["create", "update", "partial_update"]:
+    #         return [IsAuthenticated()]
+    #     return []
