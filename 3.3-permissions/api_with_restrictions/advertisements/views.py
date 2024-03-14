@@ -5,7 +5,6 @@ from advertisements.models import Advertisement
 
 from advertisements.serializers import AdvertisementSerializer
 
-from advertisements.filters import AdvertisementFilter
 
 from advertisements.permissions import IsOwnerOrReadOnly
 
